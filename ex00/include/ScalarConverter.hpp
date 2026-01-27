@@ -2,9 +2,18 @@
     #define SCALARCONVERTER_HPP
 
 #include <iostream>
+#include <cstdlib>
+#include <sstream>
+#include <iomanip>
 
 class ScalarConverter
 {
+    private:
+        static std::string vc;
+        static  std::string non;
+        static int         vi;
+        static float       vf;
+        static double      vd;
     public:
        enum Type
         {
@@ -12,15 +21,19 @@ class ScalarConverter
             INT,
             FLOAT,
             DOUBLE,
-            UNKNOWN
+            ERROR
         };
         ScalarConverter();
         ScalarConverter(ScalarConverter const &other);
         ScalarConverter &operator=(ScalarConverter const &other);
         ~ScalarConverter();
         
-        // std::string check_type(std::string &type);
-        static Type detected_type(std::string input);
+        static void print_float(std::string &type);
+        static void print_double(std::string &type);
+        static void print_char(std::string &type);
+        static void print_int(std::string &type);
+        static void ft_check_type(std::string &type);
+        static Type detected_type(std::string &input);
         static void convert(std::string type);
         static int isInt(std::string &type);
         static int isFlout(std::string &type);
