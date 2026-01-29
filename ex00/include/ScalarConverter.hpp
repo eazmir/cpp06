@@ -31,7 +31,7 @@ class ScalarConverter
         static void print_double(std::string &type);
         static void print_char(std::string &type);
         static void print_int(std::string &type);
-        static void ft_check_type(std::string &type);
+        static void ft_cast(std::string &type);
         static Type detected_type(std::string &input);
         static void convert(std::string type);
         static int isInt(std::string &type);
