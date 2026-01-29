@@ -9,11 +9,10 @@
 class ScalarConverter
 {
     private:
-        static std::string vc;
-        static  std::string non;
-        static int         vi;
-        static float       vf;
-        static double      vd;
+        static char    _cv;
+        static int     _vi;
+        static float   _fv;
+        static double  _dv;
     public:
        enum Type
         {
