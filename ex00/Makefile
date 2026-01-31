@@ -2,14 +2,15 @@ CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 
 
 
-NAME = ScalarConverter
+NAME = Converter
 
 DIR_MAIN = main
 DIR_SRC  = src
 
 FILES = \
 	$(DIR_MAIN)/main.cpp \
-	$(DIR_SRC)/ScalarConverter.cpp
+	$(DIR_SRC)/ScalarConverter.cpp \
+	$(DIR_SRC)/ft_Converter.cpp\
 
 OBJS = $(FILES:.cpp=.o)
 

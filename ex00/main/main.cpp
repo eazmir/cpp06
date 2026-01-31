@@ -14,25 +14,15 @@ int main(int argc, char *argv[])
 // int main(void)
 // {
 //     std::string type;
-//     float        fv;
+//     void *test;
+//     float    _float;
+//     type = "112";
+//     char *end = NULL;
 
-//     type = "42";
-//     std::stringstream f(type);
-//     f >> fv;
-//     fv = static_cast<float>(fv);
-//     std::cout<<fv<<std::endl;
-// }
-// #include <iomanip>
-// int main(void)
-// {
-//     std::string type = "42";
-//     float fv;
 
-//     std::stringstream ss(type);
-//     ss >> fv;
-
-//     if (fv == static_cast<int>(fv))
-//         std::cout<<fv<<".0"<<std::endl;
-//     else
-//         std::cout<<fv<<std::endl;
+//     _float = std::strtof(type.c_str(),&end);
+//     // if (_float > std::numeric_limits<float>::max() || _float < std::numeric_limits<float>::min())
+//     //     std::cout<<"overflow"<<std::endl;
+//     std::cout <<std::fixed<<"fixed: " << std::setprecision(1) << _float<<std::endl;
+//     // std::cout<<"cout :  " <<_float<<std::endl;
 // }
