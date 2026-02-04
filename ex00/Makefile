@@ -1,8 +1,7 @@
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-
-NAME = Converter
+NAME = convert
 
 DIR_MAIN = main
 DIR_SRC  = src

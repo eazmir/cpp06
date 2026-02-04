@@ -12,35 +12,36 @@
 class ScalarConverter
 {
     private:
-        char    _char;
-        int     _int;
-        float   _float;
-        double  _double;
-        bool    _invalid;
-    public:
+        static char    _char;
+        static int     _int;
+        static float   _float;
+        static double  _double;
+        static bool    _invalid;
+    private:
+        static void ft_print_float(float _float,bool _invalid);
+        static void ft_print_double(double _double,bool _invalid);
+        static void ft_print_char(char _char,bool _invalid);
+        static void ft_print_int(int _int,bool _invalid);
+
+        static void ft_cast_nan(std::string &type);
+        static void ft_cast_int(std::string &type);
+        static void ft_cast_char(std::string &type);
+        static void ft_cast_float(std::string &type);
+        static void ft_cast_double(std::string &type);
+        
+        static int ft_isint(std::string &type);
+        static int ft_isflout(std::string &type);
+        static int ft_isdouble(std::string &type);
+        static int ft_ischar(std::string &type);
+        static int ft_invalid_input(std::string &type);
+        
         ScalarConverter();
         ScalarConverter(ScalarConverter const &other);
         ScalarConverter &operator=(ScalarConverter const &other);
         ~ScalarConverter();
-        
+    public:
         static void convert(std::string type);
-
-        void ft_print_float(std::string &type);
-        void ft_print_double(std::string &type);
-        void ft_print_char(std::string &type);
-        void ft_print_int(std::string &type);
-
-        void ft_cast_nan(std::string &type);
-        void ft_cast_int(std::string &type);
-        void ft_cast_char(std::string &type);
-        void ft_cast_float(std::string &type);
-        void ft_cast_double(std::string &type);
-        
-        int ft_isint(std::string &type);
-        int ft_isflout(std::string &type);
-        int ft_isdouble(std::string &type);
-        int ft_ischar(std::string &type);
 };
 
-int ft_invalid_input(std::string &type);
+
 #endif 

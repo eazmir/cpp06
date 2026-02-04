@@ -1,11 +1,11 @@
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = Serializer
+NAME = Identify_type
 
 SRC = \
 	main/main.cpp \
-	src/Serializer.cpp
+	src/Identify.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
