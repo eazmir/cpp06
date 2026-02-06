@@ -56,17 +56,15 @@ int ft_double_nan(std::string &n)
     return (n == "nan" || n == "-inf" || n == "+inf");
 }
 
-int  ScalarConverter::ft_invalid_input(std::string &type)
+int ScalarConverter::ft_invalid_input(std::string &type)
 {
-    return 
-    (
-        ft_ischar(type) ==      1  || 
-        ft_isint(type) ==       1  || 
-        ft_isflout(type) ==     1  || 
-        ft_isdouble(type) ==    1  || 
-        ft_float_nan(type)         || 
-        ft_double_nan(type)
-    );
+    return (
+        ft_ischar(type) == 1 ||
+        ft_isint(type) == 1 ||
+        ft_isflout(type) == 1 ||
+        ft_isdouble(type) == 1 ||
+        ft_float_nan(type) ||
+        ft_double_nan(type));
 }
 
 void ScalarConverter::ft_cast_nan(std::string &type)
@@ -89,10 +87,10 @@ void ScalarConverter::ft_cast_char(std::string &type)
     if (ft_ischar(type))
     {
         char cv = (type.length() == 1) ? type[0] : type[1];
-      _char = cv;
+        _char = cv;
         _int = static_cast<int>(cv);
-       _float = static_cast<float>(cv);
-       _double = static_cast<double>(cv);
+        _float = static_cast<float>(cv);
+        _double = static_cast<double>(cv);
         return;
     }
 }
@@ -154,8 +152,9 @@ void ScalarConverter::ft_cast_int(std::string &type)
     }
 }
 
-void ScalarConverter::ft_print_float(float _float,bool _invalid)
+void ScalarConverter::ft_print_float(std::string &type)
 {
+    (void)type;
     if (_invalid)
     {
         std::cout << "float: impossible" << std::endl;
@@ -171,18 +170,12 @@ void ScalarConverter::ft_print_float(float _float,bool _invalid)
         std::cout << "float: " << (_float < 0 ? "-" : "+") << "inff" << std::endl;
         return;
     }
-    double intpart;
-    bool is_integer = (std::modf(_float, &intpart) == 0.0);
-    std::ostringstream out;
-    if (is_integer)
-        out <<std::fixed << std::setprecision(1) << _float;
-    else
-        out <<std::fixed<<std::setprecision(2) << _float;
-    std::cout << "float: " << out.str() << "f" << std::endl;
+    std::cout <<std::fixed<<std::setprecision(1)<< "float: " << _float << "f" << std::endl;
 }
 
-void ScalarConverter::ft_print_double(double _double,bool _invalid)
+void ScalarConverter::ft_print_double(std::string &type)
 {
+    (void)type;
     if (_invalid)
     {
         std::cout << "double: impossible" << std::endl;
@@ -198,44 +191,40 @@ void ScalarConverter::ft_print_double(double _double,bool _invalid)
         std::cout << "double: " << (_double < 0 ? "-" : "+") << "inf" << std::endl;
         return;
     }
-    double intpart;
-    bool is_integer = (std::modf(_double, &intpart) == 0.0);
-    std::ostringstream out;
-    if (is_integer)
-        out << std::fixed << std::setprecision(1) << _double;
-    else
-        out << std::fixed << std::setprecision(2) << _double;
-    std::cout<<"double: "<<out.str()<<std::endl;
+    std::cout <<std::fixed<<std::setprecision(1)<< "double: " << _double << std::endl;
 }
 
-void ScalarConverter::ft_print_char(char _char,bool _invalid)
+void ScalarConverter::ft_print_char(std::string &type)
 {
+    (void)type;
     if (_invalid || std::isnan(_double) || std::isinf(_double))
     {
         std::cout << "char: impossible" << std::endl;
         return;
     }
-    if (_int < -128 || _int > 127)
+    if (_double < -128.0 || _double > 127.0)
     {
         std::cout << "char: impossible" << std::endl;
         return;
-    }
-    if (!std::isprint(_char))
+    } 
+    if (!std::isprint(static_cast<unsigned char>(_char)))
     {
         std::cout << "char: Non displayable" << std::endl;
         return;
     }
-    std::cout << "char: " <<"'"<< _char <<"'"<< std::endl;
+    std::cout << "char: " << '\'' << _char << '\'' << std::endl;
 }
 
-void ScalarConverter::ft_print_int(int _int ,bool _invalid)
+void ScalarConverter::ft_print_int(std::string &type)
 {
+    (void)type;
     if (_invalid || std::isnan(_double) || std::isinf(_double))
     {
         std::cout << "int: impossible" << std::endl;
         return;
     }
-    if (_double < std::numeric_limits<int>::min() || _double > std::numeric_limits<int>::max())
+    if (_double < static_cast<double>(std::numeric_limits<int>::min())
+        || _double > static_cast<double>(std::numeric_limits<int>::max()))
     {
         std::cout << "int: impossible" << std::endl;
         return;

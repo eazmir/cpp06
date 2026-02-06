@@ -35,8 +35,8 @@ void ScalarConverter::convert(std::string type)
   ft_cast_int(type);
   ft_cast_float(type);
   ft_cast_double(type);
-    if (!ft_invalid_input(type))
-      _invalid = true;
+  if (!ft_invalid_input(type))
+    _invalid = true;
   ft_print_char(type);
   ft_print_int(type);
   ft_print_float(type);

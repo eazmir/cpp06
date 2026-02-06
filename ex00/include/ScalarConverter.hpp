@@ -1,5 +1,5 @@
 #ifndef SCALARCONVERTER_HPP
-    #define SCALARCONVERTER_HPP
+#define SCALARCONVERTER_HPP
 
 #include <iostream>
 #include <cstdlib>
@@ -18,10 +18,10 @@ class ScalarConverter
         static double  _double;
         static bool    _invalid;
     private:
-        static void ft_print_float(float _float,bool _invalid);
-        static void ft_print_double(double _double,bool _invalid);
-        static void ft_print_char(char _char,bool _invalid);
-        static void ft_print_int(int _int,bool _invalid);
+        static void ft_print_float(std::string &type);
+        static void ft_print_double(std::string &type);
+        static void ft_print_char(std::string &type);
+        static void ft_print_int(std::string &type);
 
         static void ft_cast_nan(std::string &type);
         static void ft_cast_int(std::string &type);
@@ -43,5 +43,6 @@ class ScalarConverter
         static void convert(std::string type);
 };
 
-
-#endif 
+int ft_float_nan(std::string &n);
+int ft_double_nan(std::string &n);
+#endif
