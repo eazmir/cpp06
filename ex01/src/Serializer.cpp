@@ -16,7 +16,7 @@ Serializer &Serializer::operator=(Serializer const &other)
 {
     if (this != &other)  
     {
-        //Nothing To CP
+        //Nothing To Assign
     }
     return (*this);
 }
